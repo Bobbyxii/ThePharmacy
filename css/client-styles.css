@@ -1,0 +1,103 @@
+<style>
+* {box-sizing: border-box}
+body {font-family: "Lato", sans-serif;}
+
+.logout-form {
+  float: right;
+}
+
+/* Style the tab */
+.tab {
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  display: inline-block;
+  background-color: inherit;
+  color: black;
+  padding: 10px 10px 10px 10px;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 15px;
+
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+  width: 200px;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #ccc;
+  width: 200px;
+}
+
+/* Style the tab content */
+.tabcontent {
+	position: relative;
+  top: 5px;
+  border-radius: 10px;
+  background: #F3F3F2;
+  padding: 20px 20px;
+}
+
+
+.btn-success{
+background-color: #4CAF50;
+  color: white;
+  padding: 7px 15px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 17%;
+}
+.btn-success:hover {
+  opacity: 0.5;
+}
+
+.btn_remove {
+	color: white;
+    padding: 5px 18px;
+  background-color: #f44336;
+  border: none;
+  margin: 8px 10px;
+  cursor: pointer;
+}
+.btn_remove:hover {
+  opacity: 0.5;
+}
+
+.table-form{
+  padding-left: 30px;
+}
+
+
+@media screen and (max-width: 600px) {
+  .tab.responsive {position: relative; width: 100%;}
+  .tab button{
+  display: block;
+  font-size: 15px;
+  width: 150px;
+  }
+  .tab button.active {
+    width: 150px;
+  }
+  .table-form{
+    padding-left: 2px;
+  }
+}
+
+/* Large rounded green border */
+hr.new5 {
+  border: 10px solid grey;
+  border-radius: 5px;
+}
+
+</style>

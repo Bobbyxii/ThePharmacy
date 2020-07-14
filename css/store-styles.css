@@ -1,0 +1,172 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+}
+
+/* styling the overlay in Nav */
+
+.overlay-btn{
+  font-size:20px;
+  cursor: pointer;
+  color: #f1f1f1;
+
+}
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  right: 0;
+  top: 0;
+  background-color: #FFFFFF;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.6s; /* 0.6 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 10%; /* 10% from the top */
+  text-align: left;
+  padding: 2rem;
+  margin-top: 20px; /* 20px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  color: #818181;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+  color: #000;
+  font-weight: bold;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  font-size: 30px;
+}
+
+/* modal style */
+.totalPrice{
+  text-align: right;
+  padding-right: 30px;
+}
+
+.store-head{
+  background-color: #f0f0f0;
+  padding: 3rem;
+
+}
+
+.store-head h2{
+  color:#035AA6;
+
+}
+
+.store-list{
+  padding-top: 1rem;
+}
+
+#steps{
+  text-align: center;
+  margin: 5rem;
+}
+
+.steps .row{
+  padding: 2rem;
+
+}
+
+.steps h2 {
+  font-weight: 400;
+  color:#035AA6;
+}
+
+
+.steps .pricing-column{
+  border: 1px solid;
+}
+
+/* regulations content */
+.regulations {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.regulations h2{
+  color:#035AA6;
+  margin-bottom: 1.5rem;
+}
+
+.regulations-logo{
+  width: 10%;
+  padding: 20px;
+}
+
+#regulations{
+  padding-top: 4rem;
+  background-color: #f0f0f0;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (max-width: 570px){
+  .steps .row{
+    padding: 2rem 0;
+
+  }
+  #steps{
+    margin: 2rem;
+  }
+  .steps h2 {
+    font-weight: 100;
+    font-size: 30px;
+  }
+  .steps h3 {
+    font-size: 20px;
+  }
+}
+
+
+@media (max-width: 450px) {
+  .overlay-content {
+    position: absolute;
+    top: 5%; /* 10% from the top */
+    text-align: left;
+    padding: 0rem;
+    margin-top: 10px; /* 20px top margin to avoid conflict with the close button on smaller screens */
+  }
+
+}
+@media (max-width: 365px) {
+
+  .steps .row{
+    padding: 1rem 0;
+
+  }
+  #steps{
+    margin: 1rem;
+  }
+  .steps h2 {
+    font-weight: 100;
+    font-size: 20px;
+  }
+  .steps h3 {
+    font-size: 15px;
+  }
+}
