@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>ThePharmacy.</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="css\store-styles.css" rel="stylesheet">
+
+    <!--including awesome fonts with CDN-->
+    <script src="https://kit.fontawesome.com/ea32cb0f24.js" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="index.html">ThePharmacy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Drug Store<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Health News</a>
+            </li>
+          </ul>
+
+
+
+          <!-- The overlay -->
+          <div id="myNav" class="overlay">
+
+            <!-- Button to close the overlay navigation -->
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+            <!-- Overlay content -->
+
+            <div class="overlay-content">
+              <a style="color: #035AA6;" href="client/login.html"><i class="fas fa-user-circle"></i> login</a>
+              <hr >
+              <a href="#">Home</a>
+              <a href="#">Emergencies</a>
+              <a href="#">Get Advice</a>
+              <a href="#">Get Prescriptions</a>
+
+              <hr >
+              <a href="#">About Us</a>
+              <a href="#">Meet the team</a>
+              <a href="#">FAQ</a>
+              <a href="#">Email Us</a>
+              <a href="#">08021391587 </a>
+
+            </div>
+
+          </div>
+
+          <!-- Use any element to open/show the overlay navigation menu -->
+        <span class="nav-link overlay-btn" onclick="openNav()">&#9776;</span>
+
+
+        </div>
+
+        <!-- the cart counter -->
+                <div class="row">
+                <div class="col">
+                  <button type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#cart">View Cart (<span class="total-count"></span>)</button>
+                  <button class="clear-cart btn-sm btn-danger">Clear Cart</button>
+                </div>
+                </div>
+      </nav>
+    </header>
+
+    <!-- little title guide -->
+    <div class="store-head">
+      <h2>We treat the following conditions</h2>
+      <p>Select from the list of medical conditions below to see the medicines that we are able to supply in each category.</p>
+      <form class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2 col-8" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+      <hr >
+
+      <div class="row store-list">
+
+        <div class="col-6 col-md">
+          <h5>Common Searches</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Acid Reflux & Heartburn</a></li>
+            <li><a class="text-muted" href="#">Erectile Dysfunction (ED)</a></li>
+            <li><a class="text-muted" href="#">Diabetes </a></li>
+            <li><a class="text-muted" href="#">Weight Loss</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Common Drugs</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Paracetamol</a></li>
+            <li><a class="text-muted" href="#">Viagra Tablets</a></li>
+            <li><a class="text-muted" href="#">Loratadine</a></li>
+            <li><a class="text-muted" href="#">Ibuprofen Tablets</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Health News</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Covid-19 Tips</a></li>
+            <li><a class="text-muted" href="#">Healthy foods</a></li>
+            <li><a class="text-muted" href="#">Daily Exercises</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>About Us</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Team</a></li>
+            <li><a class="text-muted" href="#">Locations</a></li>
+            <li><a class="text-muted" href="#">Privacy</a></li>
+            <li><a class="text-muted" href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Medicine Cart</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="show-cart table">
+
+        </table>
+        <div class ="totalPrice">Total price: $<span class="total-cart"></span></div><hr>
+
+        <!-- check out form -->
+        <div class="col-md-8 order-md-1 collapse checkout-panel" id="checkout">
+          <h4 class="mb-3">Delivery address</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">First name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid first name is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Last name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid last name is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email">Email <span class="text-muted">(Optional)</span></label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com">
+              <div class="invalid-feedback">
+                Please enter a valid email address for shipping updates.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+              <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+            </div>
+
+            <hr class="mb-4">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="save-info">
+              <label class="custom-control-label" for="save-info">Save this information for next time</label>
+            </div>
+            <hr class="mb-4">
+
+            <h4 class="mb-3">Payment</h4>
+
+            <div class="d-block my-3">
+              <div class="custom-control custom-radio">
+                <input id="deliverypay" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                <label class="custom-control-label" for="deliverypay">Pay on Delivery</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="paystack" name="paymentMethod" type="radio" class="custom-control-input" required>
+                <label class="custom-control-label" for="paystack">paystack</label>
+              </div>
+            </div>
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id ="close-order" >Close</button>
+        <button type="button" class="btn btn-primary" data-toggle ="collapse" data-target = "#checkout" id ="button-order">Order now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- start steps to take section-->
+
+    <section id="steps">
+
+    <div class="container steps">
+      <h2>Enter the Store</h2>
+      <p><em>Get access to over 2000 medicines.</em></p>
+
+      <!-- section for pagination-->
+
+      <!-- pagination -->
+      <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li class="page-item active"><a class="page-link" href="drugstore.html">1</a></li>
+      <li class="page-item"><a class="page-link" href="drugstore1.html">2</a></li>
+      <li class="page-item"><a class="page-link" href="drugstore2.html">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+      </ul>
+      </nav>
+      
+      <div class="container" >
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Omeprazol</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/omeprazol.png" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #500</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Omeprazol" data-price="500" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Acetazolamide</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/acetazolamide.png" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #500</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Acetazolamide" data-price="500" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div>
+
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Paracetamol</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/paracetamol.jpg" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #700</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Paracetamol" data-price="700" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Viagra</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/viagra.jpg" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #1200</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Viagra" data-price="1200" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+            </div><!-- /.row -->
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Omeprazol</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/omeprazol.png" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #500</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Omeprazol" data-price="500" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Acetazolamide</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/acetazolamide.png" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #500</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Acetazolamide" data-price="500" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div>
+
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Paracetamol</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/paracetamol.jpg" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #700</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Paracetamol" data-price="700" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Viagra</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/viagra.jpg" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #1200</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Viagra" data-price="1200" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+            </div><!-- /.row -->
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Omeprazol</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/omeprazol.png" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #500</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Omeprazol" data-price="500" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Acetazolamide</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/acetazolamide.png" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #500</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Acetazolamide" data-price="500" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div>
+
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Paracetamol</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/paracetamol.jpg" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #700</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Paracetamol" data-price="700" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Viagra</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/viagra.jpg" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #1200</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Viagra" data-price="1200" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+            </div><!-- /.row -->
+
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Omeprazol</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/omeprazol.png" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #500</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Omeprazol" data-price="500" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Acetazolamide</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/acetazolamide.png" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #500</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Acetazolamide" data-price="500" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div>
+
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Paracetamol</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/paracetamol.jpg" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #700</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Paracetamol" data-price="700" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Viagra</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/viagra.jpg" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #1200</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Viagra" data-price="1200" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+            </div><!-- /.row -->
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Omeprazol</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/omeprazol.png" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #500</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Omeprazol" data-price="500" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Acetazolamide</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/acetazolamide.png" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #500</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Acetazolamide" data-price="500" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div>
+
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Paracetamol</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/paracetamol.jpg" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #700</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Paracetamol" data-price="700" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Viagra</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/viagra.jpg" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #1200</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Viagra" data-price="1200" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+            </div><!-- /.row -->
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Omeprazol</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/omeprazol.png" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #500</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Omeprazol" data-price="500" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Acetazolamide</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/acetazolamide.png" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #500</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Acetazolamide" data-price="500" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div>
+
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Paracetamol</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/paracetamol.jpg" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #700</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Paracetamol" data-price="700" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Viagra</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/viagra.jpg" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #1200</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Viagra" data-price="1200" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+            </div><!-- /.row -->
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Omeprazol</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/omeprazol.png" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #500</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Omeprazol" data-price="500" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Acetazolamide</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/acetazolamide.png" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #500</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Acetazolamide" data-price="500" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div>
+
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Paracetamol</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/paracetamol.jpg" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #700</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Paracetamol" data-price="700" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Viagra</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/viagra.jpg" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #1200</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Viagra" data-price="1200" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+            </div><!-- /.row -->
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Omeprazol</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/omeprazol.png" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #500</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Omeprazol" data-price="500" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Acetazolamide</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/acetazolamide.png" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #500</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Acetazolamide" data-price="500" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div>
+
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Paracetamol</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/paracetamol.jpg" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #700</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Paracetamol" data-price="700" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Viagra</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/viagra.jpg" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #1200</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Viagra" data-price="1200" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+            </div><!-- /.row -->
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Omeprazol</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/omeprazol.png" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #500</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Omeprazol" data-price="500" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Acetazolamide</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/acetazolamide.png" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #500</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Acetazolamide" data-price="500" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div>
+
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Paracetamol</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/paracetamol.jpg" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #700</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Paracetamol" data-price="700" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 pricing-column">
+              <div class="card mb-2 shadow-sm">
+                <div class="card-header">
+                  <h3 class="card-title my-0 font-weight-normal">Viagra</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-0 mb-2">
+                    <img class="featurette-image img-fluid mx-auto" src="images/drugsimg/viagra.jpg" alt="Generic placeholder image">
+                  </ul>
+                  <p class="card-text">Price: #1200</p>
+                  <button type="button" class="btn btn-sm btn-block btn-primary">View</button>
+                  <a href="#" data-name="Viagra" data-price="1200" class="add-to-cart btn btn-sm btn-block btn-outline-dark">Add to cart</a>
+                </div>
+              </div>
+              </div><!-- /.col-lg-3 -->
+            </div><!-- /.row -->
+
+      </div>
+
+      <!-- pagination -->
+      <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li class="page-item active"><a class="page-link" href="drugstore.html">1</a></li>
+      <li class="page-item"><a class="page-link" href="drugstore1.html">2</a></li>
+      <li class="page-item"><a class="page-link" href="drugstore2.html">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+      </ul>
+      </nav>
+
+    </div><!-- /.container -->
+    </section>
+
+    <!-- regulations -->
+    <section id="regulations">
+    <div class="container regulations">
+      <h2>The trusted online pharmacy</h2>
+      <p>We are regulated by a number of organisations in Nigeria including the <a href="https://www.nafdac.gov.ng/">NAFDAC,</a> <a href="http://www.pcn.gov.ng/index.php">PCN</a> & CQC to ensure we offer the highest level of service to every one of our customers.</p>
+      <div class="regulations-images">
+        <img class="regulations-logo" src="images/pcnlogo.jpg" alt="tc-logo">
+        <img class="regulations-logo" src="images/tnw.png" alt="tnw-logo">
+        <img class="regulations-logo" src="images/bizinsider.png" alt="biz-insider-logo">
+        <img class="regulations-logo" src="images/nafdaclogo.png" alt="mashable-logo">
+        <img class="regulations-logo" src="images/mashable.png" alt="mashable-logo">
+
+      </div>
+      <hr class="featurette-divider">
+    </div>
+  </section>
+
+    <!-- FOOTER -->
+    <footer class="container">
+      <p class="float-right"><a href="#">Back to top</a></p>
+      <p>Powered by <a href="https://titranstech.com">&copy;Titrans</a>. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="index.js"></script>
+
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+
+
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            } else {
+              shoppingCart.clearCart();
+              location.reload();
+            }
+            form.classList.add('was-validated');
+
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
+  </body>
+</html>
